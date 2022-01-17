@@ -30,7 +30,10 @@ export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark }) =
         onChange={(e) => setName(e.target.value)}
         onKeyPress={onKeyPress}
       />
-      <PlacemarksList placemarks={placemarks} removePlacemark={removePlacemark} />
+      <PlacemarksList
+        placemarks={placemarks}
+        removePlacemark={removePlacemark}
+      />
     </div>
   );
 };

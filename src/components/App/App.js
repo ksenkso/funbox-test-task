@@ -33,7 +33,11 @@ function App() {
           </Map>
         </YMaps>
         <MapCenter />
-        <PlacemarksPanel placemarks={placemarks} addPlacemark={addPlacemark} removePlacemark={removePlacemark} />
+        <PlacemarksPanel
+          placemarks={placemarks}
+          addPlacemark={addPlacemark}
+          removePlacemark={removePlacemark}
+        />
       </div>
     </div>
   );

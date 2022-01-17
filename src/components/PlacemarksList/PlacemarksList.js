@@ -7,9 +7,16 @@ export function PlacemarksList({ placemarks, removePlacemark }) {
     <ul className="PlacemarksList">
       {placemarks.map(({ name, id }) => {
         return (
-          <li key={id} className="PlacemarksList__Item PlacemarkItem">
+          <li
+            key={id}
+            className="PlacemarksList__Item PlacemarkItem"
+          >
             <span className="PlacemarkItem__Name">{name}</span>
-            <button className="PlacemarkItem__Button" type="button" onClick={() => removePlacemark(id)}>
+            <button
+              className="PlacemarkItem__Button"
+              type="button"
+              onClick={() => removePlacemark(id)}
+            >
               <CloseIcon />
             </button>
           </li>
