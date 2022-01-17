@@ -1,0 +1,17 @@
+.app {
+  height: 100%;
+}
+
+.map-container {
+  position: relative;
+  height: 100%;
+
+  .map-center {
+    position: absolute;
+    top: 35vh;
+    width: 28px;
+    height: 28px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+}

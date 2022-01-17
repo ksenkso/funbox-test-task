@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.PlacemarksList {
+  display: flex;
+  flex-direction: column;
+  row-gap: .25rem;
+  list-style-type: none;
+}
+
+.PlacemarkItem {
+  border-bottom: 1px solid $grey;
+
+  &__Name {}
+
+  &__Button {
+    height: 28px;
+    width: 28px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color .1s ease-in-out;
+
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    &:active {
+      background-color: #fff;
+    }
+  }
+}
