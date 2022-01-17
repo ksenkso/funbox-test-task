@@ -5,29 +5,58 @@
   flex-direction: column;
   row-gap: .25rem;
   list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  max-height: 100%;
 }
 
 .PlacemarkItem {
   border-bottom: 1px solid $grey;
+  padding: 4px;
+  display: flex;
 
   &__Name {}
 
   &__Button {
-    height: 28px;
-    width: 28px;
+    height: 24px;
+    width: 24px;
     display: inline-block;
     border: none;
     cursor: pointer;
     background-color: #fff;
     transition: background-color .1s ease-in-out;
+    padding: 0;
+    margin-left: auto;
+    outline-color: $color-danger;
 
+    svg {
+      width: 18px;
+      height: 18px;
 
-    &:hover {
-      background-color: #fff;
+      circle {
+        transition: fill .1s ease-in-out;
+        fill: $color-danger;
+      }
+
+      path {
+        transition: fill .1s ease-in-out;
+        fill: #ffffff;
+      }
     }
+
 
     &:active {
       background-color: #fff;
+
+      svg {
+        circle {
+          fill: $color-danger;
+        }
+
+        path {
+          fill: red;
+        }
+      }
     }
   }
 }

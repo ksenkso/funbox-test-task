@@ -17,7 +17,7 @@ function App() {
           <Map
             defaultState={{ center, zoom: 9 }}
             width="100%"
-            height="70vh"
+            height="100%"
             instanceRef={(instance) => (map.current = instance)}
           >
             {placemarks.map(({ coords, id, name }) => (

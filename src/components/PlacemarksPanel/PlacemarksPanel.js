@@ -3,6 +3,7 @@ import { PlacemarkShape } from '../../propTypes.js';
 import { PlacemarksList } from '../PlacemarksList/PlacemarksList.js';
 import { useState } from 'react';
 import './PlacemarksPanel.scss';
+import { Input } from '../Input/Input.js';
 
 export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark }) => {
   const [name, setName] = useState('');
@@ -22,13 +23,16 @@ export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark }) =
 
   return (
     <div className="PlacemarksPanel">
-      <input
-        type="text"
-        name="placemark-name"
+      <Input
         id="placemark-name"
+        name="placemark-name"
+        title="Название новой метки"
+        placeholder="Название новой метки"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        onChange={e => setName(e.target.value)}
         onKeyPress={onKeyPress}
+        autoFocus
+        autoComplete="disabled"
       />
       <PlacemarksList
         placemarks={placemarks}

@@ -1,0 +1,9 @@
+@import "../../styles/variables";
+
+.input {
+  font-size: 16px;
+  padding: 4px;
+  border: 1px solid $grey;
+  border-radius: 3px;
+  outline-color: #6aa8db;
+}
