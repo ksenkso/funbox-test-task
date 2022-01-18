@@ -44,4 +44,12 @@ context('Map interactions', () => {
       cy.get('#map').findByText('item name').should('be.visible');
     });
   });
+
+  it('should remove placemark from the map when remove button is clicked', () => {
+    createItem('item name');
+
+    cy.get(PLACEMARKS_SELECTOR).should('have.length', 1);
+    cy.findByRole('button', { name: /Удалить точку/i }).click();
+    cy.get(PLACEMARKS_SELECTOR).should('have.length', 0);
+  });
 });
