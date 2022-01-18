@@ -1,7 +1,13 @@
 import { Placemark } from 'react-yandex-maps';
 import PropTypes from 'prop-types';
 
-export function PlacemarkWithBaloon({ coords, name, onDrag, onDragEnd }) {
+export function PlacemarkWithBaloon({ coords, name, onDrag, onDragEnd, isStart, isEnd }) {
+  const preset = isStart
+    ? 'islands#greenIcon'
+    : isEnd
+      ? 'islands#redIcon'
+      : 'islands#blueIcon';
+
   return (
     <Placemark
       modules={['geoObject.addon.balloon']}
@@ -10,6 +16,7 @@ export function PlacemarkWithBaloon({ coords, name, onDrag, onDragEnd }) {
         draggable: true,
         balloonOffset: [3, -40],
         hideIconOnBalloonOpen: false,
+        preset,
       }}
       properties={{
         balloonContentBody: name,
@@ -26,4 +33,6 @@ PlacemarkWithBaloon.propTypes = {
   id: PropTypes.number,
   onDrag: PropTypes.func,
   onDragEnd: PropTypes.func,
+  isStart: PropTypes.bool,
+  isEnd: PropTypes.bool,
 };

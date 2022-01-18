@@ -25,6 +25,8 @@ function App() {
                 key={id}
                 coords={coords}
                 name={name}
+                isStart={index === 0}
+                isEnd={index === placemarks.length - 1}
                 onDrag={(e) => placemarkHandlers.onDrag(id, e)}
                 onDragEnd={(e) => placemarkHandlers.onDragEnd(id, e)}
               />
