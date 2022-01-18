@@ -1,25 +1,40 @@
 import './PlacemarksList.scss';
 import PropTypes from 'prop-types';
-import { ReactComponent as CloseIcon } from '../../assets/close.svg';
+import { PlacemarkItem } from '../PlacemarkItem/PlacemarkItem.js';
+import { useDraggableList } from '../../hooks/useDraggableList/useDraggableList.js';
+import { getElementIndex } from '../../hooks/useDraggableList/utils.js';
 
-export function PlacemarksList({ placemarks, removePlacemark }) {
+function getPlacemarkIndexById(placemarks, id) {
+  return placemarks.find(placemark => placemark.id === +id);
+}
+
+export function PlacemarksList({ placemarks, removePlacemark, movePlacemark }) {
+  const { listRef, draggableData, setDraggableData, isDragging, handlers } = useDraggableList({
+    itemSelector: '.PlacemarkItem',
+    handlers: {
+      onDragStart: (e) => {
+        setDraggableData(getPlacemarkIndexById(placemarks, e.target.dataset.id));
+      },
+      onDrop: (e) => {
+        const newIndex = getElementIndex(e.target);
+        movePlacemark(draggableData.id, newIndex);
+      }
+    }
+  });
+
   return (
-    <ul className="PlacemarksList">
-      {placemarks.map(({ name, id }) => {
+    <ul
+      ref={listRef}
+      className={`PlacemarksList ${isDragging ? 'PlacemarksList_dragging' : ''}`}
+      {...handlers}
+    >
+      {placemarks.map((placemark) => {
         return (
-          <li
-            key={id}
-            className="PlacemarksList__Item PlacemarkItem"
-          >
-            <span className="PlacemarkItem__Name">{name}</span>
-            <button
-              className="PlacemarkItem__Button"
-              type="button"
-              onClick={() => removePlacemark(id)}
-            >
-              <CloseIcon />
-            </button>
-          </li>
+          <PlacemarkItem
+            key={placemark.id}
+            placemark={placemark}
+            removePlacemark={removePlacemark}
+          />
         );
       })}
     </ul>
@@ -34,4 +49,5 @@ PlacemarksList.propTypes = {
     }),
   ),
   removePlacemark: PropTypes.func,
+  movePlacemark: PropTypes.func,
 };
