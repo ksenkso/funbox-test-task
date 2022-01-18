@@ -35,6 +35,18 @@ const actionHandlers = {
       placemarks: state.placemarks.map((point, index) => (index === placemarkIndex ? {...point, coords} : point))
     };
   },
+
+  movePlacemark(state, {payload: {id, newIndex}}) {
+    const oldIndex = findPlacemarkIndex(state.placemarks, id);
+    const sortedPlacemarks = state.placemarks.slice(0);
+
+    sortedPlacemarks.splice(oldIndex, 1);
+    sortedPlacemarks.splice(newIndex, 0, state.placemarks.find(placemark => placemark.id === id));
+
+    return {
+      placemarks: sortedPlacemarks,
+    }
+  }
 };
 
 export function reducer(state, action) {
