@@ -8,12 +8,17 @@
   padding: 0;
   overflow: hidden;
   max-height: 100%;
+
+  &_dragging {
+    cursor: grabbing;
+  }
 }
 
 .PlacemarkItem {
   border-bottom: 1px solid $grey;
   padding: 4px;
   display: flex;
+  cursor: grab;
 
   &__Name {}
 
