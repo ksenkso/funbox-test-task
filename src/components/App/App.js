@@ -15,6 +15,7 @@ function App() {
       <div className="map-container">
         <YMaps>
           <Map
+            id="map"
             defaultState={{ center, zoom: 9 }}
             width="100%"
             height="100%"

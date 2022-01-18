@@ -1,8 +1,11 @@
+@import '../../styles/mixins';
+
 .PlacemarksPanel {
   position: absolute;
   bottom: 0;
-  left: 70%;
+  right: 0;
   width: 30%;
+  min-width: 500px;
   height: 30vh;
   overflow: auto;
   display: flex;
@@ -13,4 +16,13 @@
   background-color: #fff;
   z-index: 1;
   box-shadow: 0 -2px 5px 0 rgb(0 0 0 / 30%);
+  min-height: 12rem;
+
+
+  @include sm-screen {
+    min-width: 0;
+    width: 100%;
+    left: 0;
+    height: 40vh;
+  }
 }

@@ -1,0 +1,15 @@
+@import "../../styles/mixins";
+
+.map-center {
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+
+  @include sm-screen {
+    top: 30%;
+  }
+}

@@ -1,3 +1,4 @@
+import './MapCenter.scss';
 import { ReactComponent as PositionIcon } from '../../assets/center.svg';
 
 export const MapCenter = (props) => {

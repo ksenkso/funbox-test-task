@@ -6,7 +6,7 @@
   row-gap: .25rem;
   list-style-type: none;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
   max-height: 100%;
 
   &_dragging {
