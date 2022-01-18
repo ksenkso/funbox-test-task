@@ -1,11 +1,22 @@
 import PropTypes from 'prop-types';
 import { PlacemarkShape } from '../../propTypes.js';
-import { PlacemarksList } from '../PlacemarksList/PlacemarksList.js';
 import { useState } from 'react';
 import './PlacemarksPanel.scss';
 import { Input } from '../Input/Input.js';
+import { PlacemarksList } from '../PlacemarksList/PlacemarksList.js';
 
-export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark }) => {
+function PlacemarksStub() {
+  return (
+    <p
+      className="PlacemarksStub"
+      data-testid="list-stub"
+    >
+      Здесь будет список Ваших отметок
+    </p>
+  );
+}
+
+export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark, movePlacemark }) => {
   const [name, setName] = useState('');
   /**
    * @param {React.KeyboardEvent} event
@@ -34,9 +45,11 @@ export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark }) =
         autoFocus
         autoComplete="disabled"
       />
+      {!placemarks.length && <PlacemarksStub />}
       <PlacemarksList
         placemarks={placemarks}
         removePlacemark={removePlacemark}
+        movePlacemark={movePlacemark}
       />
     </div>
   );
@@ -46,4 +59,5 @@ PlacemarksPanel.propTypes = {
   placemarks: PropTypes.arrayOf(PlacemarkShape),
   addPlacemark: PropTypes.func,
   removePlacemark: PropTypes.func,
+  move: PropTypes.func,
 };
