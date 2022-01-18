@@ -1,9 +1,9 @@
 import { createRef } from 'react';
-import { usePathReducer } from './reducer.js';
+import { initialState, usePathReducer } from './reducer.js';
 import { getPlacemarkCoords } from './utils.js';
 
-export const usePath = () => {
-  const [state, dispatch] = usePathReducer();
+export const usePath = (defaultState = initialState) => {
+  const [state, dispatch] = usePathReducer(defaultState);
 
   const map = createRef();
 
@@ -23,7 +23,15 @@ export const usePath = () => {
       type: 'removePoint',
       payload: id,
     });
-  };
+  }
+
+  const movePlacemark = (id, newIndex) => {
+    dispatch({
+      type: 'movePlacemark',
+      payload: { id, newIndex }
+    })
+  }
+
 
   const onDrag = (id, event) => {
     const coords = getPlacemarkCoords(event);
@@ -41,8 +49,8 @@ export const usePath = () => {
     map,
     addPlacemark,
     removePlacemark,
+    movePlacemark,
     placemarks: state.placemarks,
-    lineCoords: state.lineCoords,
     placemarkHandlers: {
       onDrag,
       onDragEnd,
