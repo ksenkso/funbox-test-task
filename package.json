@@ -26,7 +26,8 @@
     },
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:cypress/recommended"
     ],
     "overrides": [
       {
@@ -72,6 +73,9 @@
     ]
   },
   "devDependencies": {
-    "@testing-library/user-event": "^14.0.0-beta.8"
+    "@testing-library/cypress": "^8.0.2",
+    "@testing-library/user-event": "^14.0.0-beta.8",
+    "cypress": "^9.2.1",
+    "eslint-plugin-cypress": "^2.12.1"
   }
 }
