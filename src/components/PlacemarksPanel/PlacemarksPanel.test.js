@@ -58,4 +58,52 @@ describe('PlacemarksPanel', () => {
     expect(screen.queryByTestId('list-stub')).not.toBeInTheDocument();
     expect(screen.getByText(placemarkName)).toBeInTheDocument();
   });
+
+  it('should render a color indicator for each placemark', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<TestWrapper />);
+
+    const textbox = screen.getByRole('textbox');
+
+    await user.type(textbox, 'new placemark');
+    await user.keyboard('{Enter}');
+
+    expect(screen.getByLabelText('Начало пути')).toBeInTheDocument();
+
+    await user.type(textbox, 'new placemark');
+    await user.keyboard('{Enter}');
+
+    expect(screen.getByLabelText('Конец пути')).toBeInTheDocument();
+
+    await user.type(textbox, 'new placemark');
+    await user.keyboard('{Enter}');
+
+    expect(
+      container
+        .querySelector('li:nth-child(1) > .PlacemarkItem__Point')
+        .classList
+        .contains('PlacemarkItem__Point_start')
+    ).toBeTruthy();
+
+    expect(
+      container
+        .querySelector('li:nth-child(2) > .PlacemarkItem__Point')
+        .classList
+        .contains('PlacemarkItem__Point_start')
+    ).toBeFalsy();
+
+    expect(
+      container
+        .querySelector('li:nth-child(2) > .PlacemarkItem__Point')
+        .classList
+        .contains('PlacemarkItem__Point_end')
+    ).toBeFalsy();
+
+    expect(
+      container
+        .querySelector('li:nth-child(3) > .PlacemarkItem__Point')
+        .classList
+        .contains('PlacemarkItem__Point_end')
+    ).toBeTruthy();
+  })
 });

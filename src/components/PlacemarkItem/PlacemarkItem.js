@@ -8,13 +8,22 @@ export function PlacemarkItem({ placemark, removePlacemark, isStart, isEnd }) {
     : isEnd
       ? 'PlacemarkItem__Point_end'
       : '';
+  const label = isStart
+    ? 'Начало пути'
+    : isEnd
+      ? 'Конец пути'
+      : '';
+
   return (
     <li
       className="PlacemarksList__Item PlacemarkItem"
       draggable={true}
       data-id={placemark.id}
     >
-      <span className={`PlacemarkItem__Point ${pointClassName}`} />
+      <span
+        className={`PlacemarkItem__Point ${pointClassName}`}
+        aria-label={label}
+      />
       <span className="PlacemarkItem__Name">{placemark.name}</span>
       <button
         className="PlacemarkItem__Button"
