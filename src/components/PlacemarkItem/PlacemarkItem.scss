@@ -1,0 +1,70 @@
+@import "../../styles/variables";
+
+.PlacemarkItem {
+  border-bottom: 1px solid $grey;
+  padding: 4px;
+  display: flex;
+  cursor: grab;
+
+  &__Point {
+    margin-right: .25rem;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: $placemark-default-color;
+    display: inline-block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &_start {
+      background-color: $placemark-start-color;
+    }
+
+    &_end {
+      background-color: $placemark-end-color;
+    }
+  }
+
+  &__Button {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color .1s ease-in-out;
+    padding: 0;
+    margin-left: auto;
+    outline-color: $color-danger;
+
+    svg {
+      width: 18px;
+      height: 18px;
+
+      circle {
+        transition: fill .1s ease-in-out;
+        fill: $color-danger;
+      }
+
+      path {
+        transition: fill .1s ease-in-out;
+        fill: #ffffff;
+      }
+    }
+
+
+    &:active {
+      background-color: #fff;
+
+      svg {
+        circle {
+          fill: $color-danger;
+        }
+
+        path {
+          fill: red;
+        }
+      }
+    }
+  }
+}

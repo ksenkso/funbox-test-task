@@ -28,12 +28,14 @@ export function PlacemarksList({ placemarks, removePlacemark, movePlacemark }) {
       className={`PlacemarksList ${isDragging ? 'PlacemarksList_dragging' : ''}`}
       {...handlers}
     >
-      {placemarks.map((placemark) => {
+      {placemarks.map((placemark, index) => {
         return (
           <PlacemarkItem
             key={placemark.id}
             placemark={placemark}
             removePlacemark={removePlacemark}
+            isStart={index === 0}
+            isEnd={index === placemarks.length - 1}
           />
         );
       })}
