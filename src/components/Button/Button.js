@@ -1,18 +1,20 @@
-import './Input.scss';
-import PropTypes from 'prop-types';
+import './Button.scss';
 import { useClassNames } from '../../hooks/useClassNames/useClassNames.js';
+import PropTypes from 'prop-types';
 
-export const Input = ({ classNames = [], ...props }) => {
+export const Button = ({ children, classNames = [], ...props }) => {
   const className = useClassNames(['input', ...classNames]);
 
   return (
-    <input
+    <button
       className={className}
       {...props}
-    />
+    >
+      {children}
+    </button>
   );
 };
 
-Input.propTypes = {
+Button.propTypes = {
   classNames: PropTypes.arrayOf(PropTypes.string),
 }

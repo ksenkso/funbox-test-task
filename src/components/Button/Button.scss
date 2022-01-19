@@ -1,9 +1,8 @@
 @import "../../styles/variables";
 
-.input {
-  font-size: 16px;
-  padding: 4px;
+.Button {
   border: 1px solid $grey;
   border-radius: $border-radius;
-  outline-color: #6aa8db;
+  cursor: pointer;
+  outline-color: $input-outline;
 }

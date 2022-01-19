@@ -1,0 +1,11 @@
+@import "../../styles/mixins";
+
+.InputBox {
+  display: flex;
+  width: 100%;
+  column-gap: .5rem;
+
+  .PlacemarkName {
+    flex: 1;
+  }
+}
