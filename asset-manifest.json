@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/funbox-test-task/static/css/main.a49d791d.css",
+    "main.js": "/funbox-test-task/static/js/main.5087502c.js",
+    "static/css/70.93b2d837.chunk.css": "/funbox-test-task/static/css/70.93b2d837.chunk.css",
+    "static/js/70.c80fb358.chunk.js": "/funbox-test-task/static/js/70.c80fb358.chunk.js",
+    "static/js/787.bbf475e6.chunk.js": "/funbox-test-task/static/js/787.bbf475e6.chunk.js",
+    "index.html": "/funbox-test-task/index.html",
+    "static/media/center.svg": "/funbox-test-task/static/media/center.9134e3d45fd7b57cb57f4baba9915b37.svg",
+    "static/media/close.svg": "/funbox-test-task/static/media/close.1febf024d74a70cc6d79ed37ff216590.svg",
+    "static/media/loader.svg": "/funbox-test-task/static/media/loader.8ec72b4f39f1dd9dd0de25fd585e17f4.svg",
+    "main.a49d791d.css.map": "/funbox-test-task/static/css/main.a49d791d.css.map",
+    "main.5087502c.js.map": "/funbox-test-task/static/js/main.5087502c.js.map",
+    "70.93b2d837.chunk.css.map": "/funbox-test-task/static/css/70.93b2d837.chunk.css.map",
+    "70.c80fb358.chunk.js.map": "/funbox-test-task/static/js/70.c80fb358.chunk.js.map",
+    "787.bbf475e6.chunk.js.map": "/funbox-test-task/static/js/787.bbf475e6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a49d791d.css",
+    "static/js/main.5087502c.js"
+  ]
+}
