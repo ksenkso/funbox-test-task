@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "funbox-test-task",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://ksenkso.github.io/funbox-test-task",
@@ -79,6 +79,7 @@
     "@testing-library/user-event": "^14.0.0-beta.8",
     "cypress": "^9.2.1",
     "eslint-plugin-cypress": "^2.12.1",
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
