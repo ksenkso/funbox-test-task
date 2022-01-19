@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "test:e2e": "cypress run",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && npm run test && npm run test:e2e",
+    "predeploy": "npm run build && npm run test -- --watchAll=false && npm run test:e2e",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
