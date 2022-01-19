@@ -40,6 +40,7 @@ export const InputBox = ({ addPlacemark }) => {
         isTouch &&
         <Button
           classNames={['AddButton']}
+          aria-label="Добавить точку"
           onClick={addItem}
         >
           Добавить
