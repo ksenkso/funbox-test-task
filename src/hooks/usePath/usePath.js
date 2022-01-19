@@ -8,6 +8,8 @@ export const usePath = (defaultState = initialState) => {
   const map = createRef();
 
   const addPlacemark = (name) => {
+    if (!map.current) return;
+
     const placemark = {
       name,
       coords: map.current.getCenter(),
