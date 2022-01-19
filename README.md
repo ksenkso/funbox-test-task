@@ -13,7 +13,8 @@ npm install
 ## Доступные команды
 
 - `npm start` - запуск в режиме разработки
-- `npm test` - запуск тестов
+- `npm test` - запуск unit-тестов
+- `npm test:e2e` - запуск E2E-тестов
 - `npm deploy` - загрузка билда на Github Pages
-- `npm run build` - запуск production-сборки
+- `npm run build` - создание production-сборки
 - `npm run eject` - выгрузка всех конфигураций из-под капота `create-react-app`
