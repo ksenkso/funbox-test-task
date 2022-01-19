@@ -14,6 +14,6 @@ npm install
 
 - `npm start` - запуск в режиме разработки
 - `npm test` - запуск тестов
-- `npm run prepare` - установка git-хуков Husky
+- `npm deploy` - загрузка билда на Github Pages
 - `npm run build` - запуск production-сборки
 - `npm run eject` - выгрузка всех конфигураций из-под капота `create-react-app`
