@@ -3,17 +3,13 @@ context('Map interactions', () => {
     cy.visit('http://localhost:3000');
   });
 
-  const createItem = (name) => {
-    cy.findByRole('textbox').type(name + '{Enter}');
-  };
-
   const PLACEMARK_ICON_SELECTOR = '[class*=placemark-overlay] [class*=svg-icon]';
   const PLACEMARKS_SELECTOR = '[class*=placemark-overlay] > ymaps';
 
   it('should allow to reorder placemarks by dragging them', () => {
     const items = Array(3).fill(null).map((_, index) => `item ${index}`);
 
-    items.forEach(createItem);
+    items.forEach(cy.addPlacemark);
 
     cy.findAllByText(/item/).should('have.length', 3);
 
@@ -31,13 +27,13 @@ context('Map interactions', () => {
   it('should create placemarks on the map', () => {
     const items = Array(3).fill(null).map((_, index) => `item ${index}`);
 
-    items.forEach(createItem);
+    items.forEach(cy.addPlacemark);
 
     cy.get(PLACEMARKS_SELECTOR).should('have.length', 3);
   });
 
   it('should show a baloon with placemark text when placemark is clicked', () => {
-    createItem('item name');
+    cy.addPlacemark('item name');
     cy.get(PLACEMARK_ICON_SELECTOR).first().then(icon => {
       const position = icon.offset();
       cy.get('#map').click(position.left + 10, position.top + 10);
@@ -46,7 +42,7 @@ context('Map interactions', () => {
   });
 
   it('should remove placemark from the map when remove button is clicked', () => {
-    createItem('item name');
+    cy.addPlacemark('item name');
 
     cy.get(PLACEMARKS_SELECTOR).should('have.length', 1);
     cy.findByRole('button', { name: /Удалить точку/i }).click();
