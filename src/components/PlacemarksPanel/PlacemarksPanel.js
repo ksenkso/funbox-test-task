@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { PlacemarkShape } from '../../propTypes.js';
-import './PlacemarksPanel.scss';
 import { PlacemarksList } from '../PlacemarksList/PlacemarksList.js';
 import { InputBox } from '../InputBox/InputBox.js';
 
@@ -17,7 +16,7 @@ function PlacemarksStub() {
 
 const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark, movePlacemark }) => {
   return (
-    <div className="PlacemarksPanel">
+    <>
       <InputBox addPlacemark={addPlacemark} />
       {!placemarks.length && <PlacemarksStub />}
       <PlacemarksList
@@ -25,7 +24,7 @@ const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark, movePlacem
         removePlacemark={removePlacemark}
         movePlacemark={movePlacemark}
       />
-    </div>
+    </>
   );
 };
 

@@ -1,13 +1,9 @@
-import { lazy, Suspense } from 'react';
 import './App.scss';
 import { Map, Polyline, YMaps } from 'react-yandex-maps';
 import { usePath } from '../../hooks/usePath/usePath.js';
 import { PlacemarkWithBaloon } from '../PlacemarkWithBaloon/PlacemarkWithBaloon.js';
 import { MapCenter } from '../MapCenter/MapCenter.js';
-import { PlacemarksPanelLoader } from '../PlacemarksPanelLoader/PlacemarksPanelLoader.js';
-
-const PlacemarksPanel = lazy(() => import('../PlacemarksPanel/PlacemarksPanel.js'));
-
+import { PlacemarksPanelContainer } from '../PlacemarksPanel/PlacemarksPanelContainer.js';
 
 const center = [55.75, 37.57];
 
@@ -40,14 +36,12 @@ function App() {
           </Map>
         </YMaps>
         <MapCenter />
-        <Suspense fallback={<PlacemarksPanelLoader />}>
-          <PlacemarksPanel
-            placemarks={placemarks}
-            addPlacemark={addPlacemark}
-            removePlacemark={removePlacemark}
-            movePlacemark={movePlacemark}
-          />
-        </Suspense>
+        <PlacemarksPanelContainer
+          placemarks={placemarks}
+          addPlacemark={addPlacemark}
+          removePlacemark={removePlacemark}
+          movePlacemark={movePlacemark}
+        />
       </div>
     </div>
   );
