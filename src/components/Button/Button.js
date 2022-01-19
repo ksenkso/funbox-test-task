@@ -3,7 +3,7 @@ import { useClassNames } from '../../hooks/useClassNames/useClassNames.js';
 import PropTypes from 'prop-types';
 
 export const Button = ({ children, classNames = [], ...props }) => {
-  const className = useClassNames(['input', ...classNames]);
+  const className = useClassNames(['Button', ...classNames]);
 
   return (
     <button
