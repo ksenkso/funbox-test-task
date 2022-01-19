@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { PlacemarksPanel } from './PlacemarksPanel.js';
+import PlacemarksPanel from './PlacemarksPanel.js';
 import userEvent from '@testing-library/user-event';
 import { usePath } from '../../hooks/usePath/usePath.js';
 

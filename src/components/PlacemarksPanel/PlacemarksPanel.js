@@ -15,7 +15,7 @@ function PlacemarksStub() {
   );
 }
 
-export const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark, movePlacemark }) => {
+const PlacemarksPanel = ({ placemarks, addPlacemark, removePlacemark, movePlacemark }) => {
   return (
     <div className="PlacemarksPanel">
       <InputBox addPlacemark={addPlacemark} />
@@ -35,3 +35,5 @@ PlacemarksPanel.propTypes = {
   removePlacemark: PropTypes.func,
   move: PropTypes.func,
 };
+
+export default PlacemarksPanel;
